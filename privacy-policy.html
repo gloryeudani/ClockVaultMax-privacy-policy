@@ -28,34 +28,70 @@ a{color:#5B21FF;text-decoration:none}
 <p>ClockVault Max is designed as an offline-first vault application. Your personal files are not uploaded to or stored on ClockVault Max servers.</p>
 
 <p><b>Vault Files</b><br>
-Photos, videos, audio files, documents, and other files that you import into ClockVault Max are stored locally on your device according to the application's vault functionality. ClockVault Max does not intentionally upload the contents of your vault files to our servers.</p>
+Photos, videos, audio files, documents, and other files that you import into ClockVault Max are stored locally on your device according to the application's vault functionality. ClockVault Max does not upload the contents of your vault files to our servers.</p>
 
 <p><b>PINs and App Settings</b><br>
-Your vault PINs, preferences, configurations, and other locally required application data may be stored on your device. You are responsible for maintaining access to your device and any credentials required to access your vault.</p>
+Your vault PINs, preferences, configurations, and other locally required application data are stored locally on your device. You are responsible for maintaining access to your device and any credentials required to access your vault.</p>
 
 <span class="bold">2. Device Permissions</span>
-<p>ClockVault Max may request device permissions necessary to provide its features.</p>
+<p>ClockVault Max requires specific Android system permissions strictly to deliver core privacy, security, and encrypted vault capabilities. Because ClockVault Max is an offline-first privacy application, all data processed through these permissions stays strictly on your device and is never transmitted, collected, or sold to remote servers.</p>
 
-<p><b>Storage and Media Access</b></p>
+<p><b>1. Camera Access (android.permission.CAMERA)</b></p>
 <ul>
-<li>Select files for import.</li>
-<li>Move files into the vault.</li>
-<li>Restore files to their original or selected location.</li>
-<li>Delete files when you request deletion.</li>
-<li>Manage files within the application's vault.</li>
+<li><b>Purpose:</b> Intruder Selfie & Break-in Detection.</li>
+<li>Camera access is used exclusively for the optional "Intruder Selfie" security feature. When enabled in your security settings, ClockVault Max uses the front-facing camera to silently capture a snapshot of anyone attempting to access your private vault with an incorrect passcode or invalid clock-hand combination.</li>
+<li>Intruder photos are immediately encrypted and stored locally in your private "Break-In Logs" within the app sandbox.</li>
+<li>The camera is never accessed during regular clock navigation or vault browsing.</li>
+<li>Intruder images are never uploaded to any cloud server, third-party service, or external repository.</li>
 </ul>
 
-<p><b>Camera</b><br>
-Camera access is required for the Intruder Selfie feature. When enabled, ClockVault Max may capture an image after an unsuccessful vault-access attempt. Intruder Selfie images are intended to remain stored locally on the device and are not intentionally uploaded to ClockVault Max servers.</p>
+<p><b>2. All Files Access (android.permission.MANAGE_EXTERNAL_STORAGE)</b></p>
+<ul>
+<li><b>Purpose:</b> Safe Vault Import, Encryption, Original Cleanup & Restoration.</li>
+<li>On Android 11 (API level 30) and newer, ClockVault Max requests All Files Access to function as a full-featured encrypted vault for documents, PDFs, downloads, backups, and user-selected files located outside standard public media directories.</li>
+<li><b>Encrypted Import:</b> Reads user-selected files from any storage location to encrypt them into the local hardware-backed vault using AES-256 encryption.</li>
+<li><b>Automatic Original Cleanup:</b> Safely removes the original, unencrypted files from public shared storage upon successful encryption, preventing unauthorized discovery by other apps or file explorers.</li>
+<li><b>Direct File Restoration:</b> Restores and re-encrypts exported vault items back to their exact original directory or selected export folder upon your explicit command.</li>
+<li>ClockVault Max never scans, reads, or modifies files outside those you explicitly select for vault import, management, or restoration.</li>
+</ul>
 
-<p><b>Notifications</b><br>
-Notification permission may be used for application-related notifications and security-related alerts.</p>
+<p><b>3. Photo and Video Access (READ_MEDIA_IMAGES & READ_MEDIA_VIDEO / READ_EXTERNAL_STORAGE)</b></p>
+<ul>
+<li><b>Purpose:</b> Securing Photos & Videos into Vault.</li>
+<li>This permission allows you to view and select private photos, screenshots, and videos from your device gallery or photo albums to import into ClockVault Max.</li>
+<li>Selected photos and videos are encrypted using AES-256 and removed from your device's public gallery.</li>
+<li>Enables native hardware-accelerated playback and high-speed AES-256-CTR chunked streaming directly within the vault viewer without extracting raw files to unprotected cache.</li>
+<li>Unselected media files in your gallery are never accessed, indexed, or monitored.</li>
+</ul>
+
+<p><b>4. Audio Access (android.permission.READ_MEDIA_AUDIO)</b></p>
+<ul>
+<li><b>Purpose:</b> Storing & Securing Audio Files.</li>
+<li>Audio permission allows ClockVault Max to access and display existing audio files (such as music tracks, voice memos, and audio recordings stored on your device) so you can select and securely import them into your encrypted vault.</li>
+<li><b>Storage & Protection Only:</b> ClockVault Max does not record audio, does not access the microphone, and does not perform any listening or monitoring. It is strictly used to store, manage, and protect audio files you already have.</li>
+<li>Selected audio files are protected with AES-256 encryption and kept completely hidden from third-party music players and external audio scanner apps.</li>
+<li>Allows secure in-app playback of your stored audio files through the built-in encrypted player.</li>
+<li>Unselected audio files on your device are never accessed, indexed, or read.</li>
+</ul>
+
+<p><b>5. Notifications (android.permission.POST_NOTIFICATIONS)</b></p>
+<ul>
+<li><b>Purpose:</b> Intruder Alerts & Transfer Progress Notifications.</li>
+<li>On Android 13 (API level 33) and newer, notification permission allows ClockVault Max to deliver timely local system alerts:
+  <ul>
+    <li><b>Break-In Alerts:</b> Notifies you immediately if an intruder enters an incorrect PIN attempt on the clock lock screen.</li>
+    <li><b>Transfer & Restore Progress:</b> Displays active progress bars and completion notices during large batch imports or file restorations so you can track background operations without keeping the app in the foreground.</li>
+  </ul>
+</li>
+<li>ClockVault Max does not use notifications for advertising, marketing, or promotional push campaigns.</li>
+</ul>
+
+<p><b>Permission Control & Revocation</b><br>
+All permissions are optional, requested with transparent user consent, and can be revoked or modified at any time through your device's <b>System Settings > Apps > ClockVault Max > Permissions</b>. Please note that disabling certain permissions (such as All Files Access or Camera) may limit specific features like original file deletion or the Intruder Selfie mechanism.</p>
 
 <span class="bold">3. Data Security</span>
 <p>ClockVault Max is designed to keep vault files locally on the user's device. The App uses security measures designed to protect stored vault content from unauthorized access. However, no application or storage system can guarantee absolute security.</p>
-
 <p>Users should maintain appropriate device security, including a secure device lock and appropriate backup practices.</p>
-
 <p>If the device is lost, damaged, reset, or the application is uninstalled without an appropriate backup, locally stored vault data may be permanently lost. ClockVault Max is not responsible for data loss resulting from device failure, factory reset, accidental deletion, unauthorized device access, or circumstances outside the application's control.</p>
 
 <span class="bold">4. Children's Privacy</span>
@@ -63,15 +99,13 @@ Notification permission may be used for application-related notifications and se
 
 <span class="bold">5. Data Retention and Deletion</span>
 <p>Because ClockVault Max stores its core vault files locally on the user's device, users can manage or delete those files through the application's available features.</p>
-
-<p>Deleting a file through the App may permanently remove it from the device. Uninstalling the App may also result in the loss of locally stored application data and vault files.</p>
+<p>Deleting a file through the App permanently removes it from the device. Uninstalling the App may also result in the loss of locally stored application data and vault files.</p>
 
 <span class="bold">6. Changes to This Privacy Policy</span>
 <p>We may update this Privacy Policy from time to time to reflect changes to ClockVault Max, its features, or applicable requirements. When changes are made, the "Last Updated" date at the beginning of this Privacy Policy will be updated. Users are encouraged to periodically review this Privacy Policy.</p>
 
 <span class="bold">7. Contact Us</span>
 <p>If you have questions, concerns, or requests regarding this Privacy Policy or ClockVault Max's privacy practices, please contact:</p>
-
 <p>
 <b>Eudson Studio</b><br>
 Email: contacteudson@gmail.com
